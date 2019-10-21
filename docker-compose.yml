@@ -1,8 +1,12 @@
 version: '3'
 services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-  redis:
-    image: "redis:alpine"
+  test-docker1:
+    container_name: test-docker1
+    build: 
+      context: ./DockerImageTest1
+    networks:
+      - default
+    expose:
+      - 8089
+    volumes:
+      - ./host_volume:/home/my_volume
